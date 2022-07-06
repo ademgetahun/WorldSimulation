@@ -4,7 +4,14 @@ import main.model.Country;
 import main.model.CountryImpl;
 import main.model.State;
 import main.model.StateImpl;
+import main.model.staticData.StaticData;
+import main.reward.DiscountedRewardImpl;
+import main.schedule.MainCountrySearch;
+import main.schedule.ScheduleSearchImpl;
+import main.successors.PruningStrategy;
 
+import java.time.Duration;
+import java.time.Instant;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -14,8 +21,8 @@ public class WorldSimulation {
 
         System.out.println("Hello how are you?!");
 
-        CountryImpl countryFactory = new CountryImpl();
-        StateImpl stateFactory = new StateImpl();
+        CountryImpl countryImpl = new CountryImpl();
+        StateImpl stateImpl = new StateImpl();
 
         String mainCountryName = "self";
         List<String> countryNameList = new ArrayList<>() {{
@@ -25,9 +32,31 @@ public class WorldSimulation {
 
         List<Country> countryList = countryNameList
                 .stream()
-                .map(countryFactory::create)
+                .map(countryImpl::create)
                 .collect(Collectors.toList());
 
-        State rootState = stateFactory.createRootState(countryList);
+        State rootState = stateImpl.createRootState(countryList);
+
+        ScheduleSearchImpl scheduleSearchImpl = new ScheduleSearchImpl(
+                new MainCountrySearch(
+                        new PruningStrategy(),
+                        new DiscountedRewardImpl(),
+                        StaticData.DEFAULT_RESOURCE_LIST,
+                        StaticData.MANUFACTURING_INPUT_MANUAL,
+                        StaticData.MANUFACTURING_OUTPUT_MANUAL
+                )
+        );
+
+        Instant start = Instant.now();
+        try {
+            State finalState = scheduleSearchImpl.executeStrategy(rootState, 4, mainCountryName);
+            finalState.printHistorySteps();
+        } catch (Exception exception) {
+            System.out.println(exception);
+        }
+        Instant finish = Instant.now();
+        long timeElapsed = Duration.between(start, finish).toMillis();
+        System.out.println("Time takes: " + timeElapsed);
+
     }
 }
