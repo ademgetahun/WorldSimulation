@@ -1,6 +1,6 @@
 package main.model.enumeration;
 
-public enum OperarionType {
+public enum OperationType {
     TRANSFORM,
     TRANSFER
 }
