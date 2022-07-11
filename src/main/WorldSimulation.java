@@ -49,7 +49,7 @@ public class WorldSimulation {
 
         Instant start = Instant.now();
         try {
-            State finalState = scheduleSearchImpl.executeStrategy(rootState, 1, mainCountryName);
+            State finalState = scheduleSearchImpl.executeStrategy(rootState, 4, mainCountryName);
             finalState.printHistorySteps();
         } catch (Exception exception) {
             System.out.println(exception);
