@@ -46,7 +46,7 @@ public class State implements Comparable<State> {
                 return 0;
             }
             int step = this.parent.printHistorySteps() + 1;
-            System.out.println("[Step #" + step + "] " + this.operation.toString());
+            System.out.println("[Step Number " + step + "] " + this.operation.toString());
             return step;
         }
 

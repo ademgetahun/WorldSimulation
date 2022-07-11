@@ -15,8 +15,8 @@ public class DiscountedRewardImpl implements RewardMeasureInterface{
     @Override
     public double measure(State currentState) {
         Operation currentOperation = currentState.getOperation();
-        String masterCountryName = currentOperation.getDestinationCountryName();
-        double masterCountryDiscountedReward = getDiscountedRewardScore(currentState, masterCountryName);
+        String mainCountryName = currentOperation.getDestinationCountryName();
+        double masterCountryDiscountedReward = getDiscountedRewardScore(currentState, mainCountryName);
         double transferSuccessProbability = 1D;
 
         if (currentOperation.getType() == OperationType.TRANSFER) {

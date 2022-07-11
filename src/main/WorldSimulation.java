@@ -19,7 +19,7 @@ import java.util.stream.Collectors;
 public class WorldSimulation {
     public static void main(String[] args) {
 
-        System.out.println("Hello how are you?!");
+        System.out.println("World Simulation - Resource Utilization : AI Project 2022");
 
         CountryImpl countryImpl = new CountryImpl();
         StateImpl stateImpl = new StateImpl();
@@ -49,7 +49,7 @@ public class WorldSimulation {
 
         Instant start = Instant.now();
         try {
-            State finalState = scheduleSearchImpl.executeStrategy(rootState, 4, mainCountryName);
+            State finalState = scheduleSearchImpl.executeStrategy(rootState, 1, mainCountryName);
             finalState.printHistorySteps();
         } catch (Exception exception) {
             System.out.println(exception);

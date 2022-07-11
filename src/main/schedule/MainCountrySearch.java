@@ -4,7 +4,6 @@ import main.model.Resource;
 import main.model.State;
 import main.reward.RewardMeasureImpl;
 import main.reward.RewardMeasureInterface;
-import main.successors.PruningStrategy;
 import main.successors.SuccessorsImpl;
 import main.successors.SuccessorsInterface;
 
@@ -58,7 +57,7 @@ public class MainCountrySearch implements  ScheduleSearchInterface{
             }
         }
 
-        State solution = solutions.peek();
+        State solution = solutions.peek(); // peek the highest one
 
         return solution;
     }
