@@ -18,6 +18,15 @@ Country size = 2 and depth = 4
 
 ![Image](src/Resource/Output_Two.png)
 
+## Output of the Project running in parallel
+Country size = 2 and depth = 3
+
+![Image](src/Resource/Output_Parallel_One.png)
+
+Country size = 2 and depth = 4
+
+![Image](src/Resource/Output_Parallel_Two.png)
+
 ## Depth vs Runtime
 
 ![Image](src/Resource/DepthVsRuntime.png)
