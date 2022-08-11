@@ -19,7 +19,9 @@ import java.util.stream.Collectors;
 public class WorldSimulation {
     public static void main(String[] args) {
 
+        System.out.println("===========================================================");
         System.out.println("World Simulation - Resource Utilization : AI Project 2022");
+        System.out.println("===========================================================");
 
         CountryImpl countryImpl = new CountryImpl();
         StateImpl stateImpl = new StateImpl();
@@ -56,7 +58,7 @@ public class WorldSimulation {
         }
         Instant finish = Instant.now();
         long timeElapsed = Duration.between(start, finish).toMillis();
-        System.out.println("Time takes: " + timeElapsed);
+        System.out.println("Time takes : " + timeElapsed);
 
     }
 }

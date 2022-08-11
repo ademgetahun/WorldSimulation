@@ -49,7 +49,7 @@ public class PruningStrategy implements  SuccessorsInterface{
         // Loop through all possible countries
         currentCountryStates
                 .entrySet()
-                .stream()//.parallelStream() for better performance//.parallelStream()
+                .parallelStream()//.stream()//.parallelStream() for better performance//.parallelStream()
                 .forEach(countryStateEntry -> {
 
                     // Skip trade with itself
@@ -134,7 +134,7 @@ public class PruningStrategy implements  SuccessorsInterface{
 
         resourceList
                 // Stream
-                .stream()//.parallelStream() for better performance
+                .parallelStream()//.stream()//.parallelStream() for better performance
                 // Go through each creatable resource
                 .forEach(targetResource -> {
                     // Return if the resource is not creatable
